@@ -19,8 +19,8 @@ class Anime < ActiveRecord::Base
   end
 
   after_validation do
-    self.estimate ||= self.release + 1.year
-    self.adala ||= "http://adala-news.fr/?s=#{self.title.gsub " ", "+"}"
-    self.t411 ||= "http://www.t411.ch/torrents/search/?search=#{self.title.gsub " ", "+"}&order=size&type=desc"
+    self.estimate = self.release + 1.year if self.estimate.blank?
+    self.adala = "http://adala-news.fr/?s=#{self.title.gsub " ", "+"}" if self.adala.blank?
+    self.t411 = "http://www.t411.ch/torrents/search/?search=#{self.title.gsub " ", "+"}&order=size&type=desc" if self.t411.blank?
   end
 end

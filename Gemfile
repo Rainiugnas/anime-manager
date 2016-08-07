@@ -20,6 +20,8 @@ gem 'bootstrap-sass'
 gem 'simple_form'
 #Html template
 gem 'slim'
+#Db admin pages
+gem 'rails_admin'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
