@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160807195358) do
+ActiveRecord::Schema.define(version: 20160807203937) do
 
   create_table "animes", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
     t.string   "adala"
-    t.string   "t441"
+    t.string   "t411"
     t.string   "trailer"
     t.string   "step"
     t.string   "state"

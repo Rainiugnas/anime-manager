@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'anime#stats'
+  resources :animes, except: [:show, :index]
+
+  root to: 'animes#stats'
 end
