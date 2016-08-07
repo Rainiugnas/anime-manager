@@ -1,8 +1,14 @@
 .sub-menu
   ul.list-unstyled.text-center
     li.separate
-      a.glyphicon.glyphicon-home.text-default
+      = link_to "", root_path, class: "glyphicon glyphicon-home text-default"
     li
       a.text-warning Consectetur
-    li
-      a.text-warning Adipisicing
+    li.separate
+      a.text-warning Adipisicing 
+      li
+        - if display_create_anime?
+          = link_to "+ Create anime", new_anime_path, class: "text-success"
+        - if display_back?
+          = link_to "<- Back", root_path, class: "text-danger"
+      
