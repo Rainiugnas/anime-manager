@@ -1,0 +1,112 @@
+/////////////
+/// Colors
+//
+$colorA: #111314; //gutter
+$colorB: #131516; //box dark (121415)
+$colorC: #161719; //menu
+$colorD: #1d1f21; //content
+$colorE: #292c2f; //box light
+$colorG: #303337; //super light
+$colorH: #6a6e72; //basic text
+$colorI: #d9dbde; //title
+$colorJ: #10a372;
+$colorK: #20b684;
+$colorL: #31cb97;
+$colorM: #3a66b6; //link hover
+$colorN: #6494ed; //link
+$colorO: #84affe;
+$colorP: #ba0d0d;
+$colorQ: #d92626;
+$colorR: #f04040;
+$colorS: #c9a46c;
+$colorT: #e2c08d;
+$colorU: #f6dab0;
+
+/////////////////
+/// Background
+//
+$background-global: $colorA;
+$background-menu: $colorB;
+$background-submenu: $colorC;
+$background-content: $colorD;
+
+$bg-dark: $colorB;
+$bg-light: $colorE;
+$bg-success: $colorK;
+$bg-primary: $colorN;
+$bg-danger: $colorQ;
+$bg-warning: $colorT;
+
+$bg-btn-default: $colorH;
+$border-btn-default: $colorG;
+$bg-btn-default-hover: $colorG;
+$border-btn-default-hover: $colorI;
+
+$bg-btn-success: $colorK;
+$border-btn-success: $colorJ;
+$bg-btn-success-hover: $colorJ;
+$border-btn-success-hover: $colorL;
+
+$bg-btn-primary: $colorN;
+$border-btn-primary: $colorM;
+$bg-btn-primary-hover: $colorM;
+$border-btn-primary-hover: $colorO;
+
+$bg-btn-danger: $colorQ;
+$border-btn-danger: $colorP;
+$bg-btn-danger-hover: $colorP;
+$border-btn-danger-hover: $colorR;
+
+$bg-btn-warning: $colorT;
+$border-btn-warning: $colorS;
+$bg-btn-warning-hover: $colorS;
+$border-btn-warning-hover: $colorU;
+
+///////////
+/// Text
+//
+$color-title: $colorI;
+$color-text: $colorH;
+$color-link: $colorN;
+$color-link-hover: $colorM;
+
+$text-default-d: $colorG;
+$text-default: $colorH;
+$text-default-l: $colorI;
+
+$text-success-d: $colorJ;
+$text-success: $colorK;
+$text-success-l: $colorL;
+
+$text-primary-d: $colorM;
+$text-primary: $colorN;
+$text-primary-l: $colorO;
+
+$text-danger-d: $colorP;
+$text-danger: $colorQ;
+$text-danger-l: $colorR;
+
+$text-warning-d: $colorS;
+$text-warning: $colorT;
+$text-warning-l: $colorU;
+
+/////////////
+/// Gutter
+///
+$section-gutter: 9px;
+$page-gutter: 3px;
+
+////////////
+/// Width
+//
+$submenu-width: 21%;
+
+///////////
+/// Height
+//
+$menu-height: 36px;
+
+/////////////
+/// Radius
+//
+$radius-box: 3px;
