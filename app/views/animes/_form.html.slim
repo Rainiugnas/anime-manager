@@ -4,9 +4,9 @@
   = f.input :description
   = f.input :release
   = f.input :estimate, start_year: Date.today.year - 21, include_blank: true
-  = f.input :rate
-  = f.input :step, collection: Anime.steps, selected: Anime.steps.first
-  = f.input :state, collection: Anime.states, selected: Anime.states.first
+  = f.input :rate, collection: 1..5, include_blank: false
+  = f.input :step, collection: Anime.steps, include_blank: false
+  = f.input :state, collection: Anime.states, include_blank: false
   = f.input :adala
   = f.input :t411
   = f.input :trailer

@@ -8,4 +8,19 @@ class Anime < ActiveRecord::Base
   validates :step, inclusion: { in: Anime.steps }
   validates :state, inclusion: { in: Anime.states }
   validates :release, presence: true
+
+  #Default values
+  after_initialize if: :new_record? do
+    self.release ||= Date.today
+    self.rate ||= 1
+    self.season ||= 1
+    self.step ||= Anime.steps.first
+    self.state ||= Anime.states.first
+  end
+
+  after_validation do
+    self.estimate ||= self.release + 1.year
+    self.adala ||= "http://adala-news.fr/?s=#{self.title.gsub " ", "+"}"
+    self.t411 ||= "http://www.t411.ch/torrents/search/?search=#{self.title.gsub " ", "+"}&order=size&type=desc"
+  end
 end
