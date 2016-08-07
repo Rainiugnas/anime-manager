@@ -34,8 +34,8 @@ class AnimesController < ApplicationController
   #     adala: String - Link for anime in adala new
   #     t411: String - Link for anime in t411
   #     trailer: String - Link to anime trailer
-  #     step: String(required, value: ) - Step of anime
-  #     state: String(required, value: ) - State of anime
+  #     step: String(required, value: To check, To see, Saw) - Step of anime
+  #     state: String(required, value: Waiting, To dl) - State of anime
   #     season: String(default: 1) - Season of anime
   #     rate: Integer(default: 1) - Rate of anime
   #     release: Date(required) - Release date of anime
@@ -45,7 +45,7 @@ class AnimesController < ApplicationController
   #   Fail: render GET /anime/new
   ##
   def create
-    @anime = Anime.new anime_params(params)
+    @anime = Anime.new anime_params
 
     if @anime.save
       redirect_to root_path

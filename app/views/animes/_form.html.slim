@@ -3,10 +3,10 @@
   = f.input :season
   = f.input :description
   = f.input :release
-  = f.input :estimate
+  = f.input :estimate, start_year: Date.today.year - 21, include_blank: true
   = f.input :rate
-  = f.input :step
-  = f.input :state
+  = f.input :step, collection: Anime.steps, selected: Anime.steps.first
+  = f.input :state, collection: Anime.states, selected: Anime.states.first
   = f.input :adala
   = f.input :t411
   = f.input :trailer
