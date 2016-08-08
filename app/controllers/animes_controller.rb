@@ -133,11 +133,11 @@ class AnimesController < ApplicationController
   # Params:
   #   id: Integer - Id of anime
   # Notice:
-  #   Redirect to GET /
+  #   Redirect to previous page
   ##
   def destroy
     @anime.delete
-    redirect_to root_path
+    redirect_to :back
   end
 
   private
