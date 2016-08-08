@@ -12,6 +12,34 @@ class AnimesController < ApplicationController
   def stats
   end
 
+  ## Render animes to check
+  # Access:
+  #   Route: GET /animes/to_check
+  #   Helper: to_check_animes_path
+  #   Format: Html
+  ##
+  def to_check
+    @animes = Anime.all
+  end
+
+  ## Render animes to see
+  # Access:
+  #   Route: GET /animes/to_see
+  #   Helper: to_see_animes_path
+  #   Format: Html
+  ##
+  def to_see
+  end
+
+  ## Render anime to saw
+  # Access:
+  #   Route: GET /anime/saw
+  #   Helper: to_saw_animes_path
+  #   Format: Html
+  ##
+  def saw
+  end
+
   ## Render new
   # Access:
   #   Route: GET /animes/new

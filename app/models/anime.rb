@@ -23,4 +23,7 @@ class Anime < ActiveRecord::Base
     self.adala = "http://adala-news.fr/?s=#{self.title.gsub " ", "+"}" if self.adala.blank?
     self.t411 = "http://www.t411.ch/torrents/search/?search=#{self.title.gsub " ", "+"}&order=size&type=desc" if self.t411.blank?
   end
+
+  #Policy
+  def download?() state == "To dl" end
 end

@@ -3,12 +3,14 @@
     li.separate
       = link_to "", root_path, class: "glyphicon glyphicon-home text-default"
     li
-      a.text-warning Consectetur
+      = link_to "To check", to_check_animes_path, class: "text-warning"
+    li
+      = link_to "To see", to_see_animes_path, class: "text-warning"
     li.separate
-      a.text-warning Adipisicing 
-      li
-        - if display_create_anime?
-          = link_to "+ Create anime", new_anime_path, class: "text-success"
-        - if display_back?
-          = link_to "<- Back", root_path, class: "text-danger"
+      = link_to "Saw", saw_animes_path, class: "text-warning"
+    li
+      - if display_create_anime?
+        = link_to "+ Create anime", new_anime_path, class: "text-success"
+      - if display_back?
+        = link_to "<- Back", root_path, class: "text-danger"
       

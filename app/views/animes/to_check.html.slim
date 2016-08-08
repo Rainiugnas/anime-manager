@@ -1,0 +1,25 @@
+- @animes.each do |anime|
+  .box.bg-dark.col-sm-4
+    div.title = anime.title
+    p
+      em 
+        strong Season: #{anime.season}
+    p = anime.description
+    ul.list-unstyled.bg-light.box
+      li Rate: #{anime.rate}
+      li Release: #{anime.release.to_quarter}
+      li
+        'Can be download
+        - unless anime.download?
+            | on #{anime.estimate.to_quarter}
+    ul
+      li
+        strong
+          a.text-default href="#{anime.trailer}" Trailer
+      li
+        strong
+          a.text-default href="#{anime.adala}" Adala new
+      li
+        strong
+          a.text-default href="#{anime.t411}" T411
+    
