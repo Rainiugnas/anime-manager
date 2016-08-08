@@ -1,6 +1,10 @@
 - @animes.each do |anime|
   .box.bg-dark.col-sm-4
-    div.title = anime.title
+    .action.text-right
+      a.text-warning.glyphicon.glyphicon-arrow-right
+      a.text-primary.glyphicon.glyphicon-edit
+      a.text-danger.glyphicon.glyphicon-remove
+    .title = anime.title
     p
       em 
         strong Season: #{anime.season}
