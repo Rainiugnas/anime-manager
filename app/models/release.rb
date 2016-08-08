@@ -1,6 +1,6 @@
 class Release < ActiveRecord::Base
   #Association
-  has_and_belongs_to_many :animes
+  has_many :animes
 
   #Constants
   def self.quarters() %w(winter spring summer fall) end
