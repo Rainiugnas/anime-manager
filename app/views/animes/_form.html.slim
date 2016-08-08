@@ -2,12 +2,12 @@
   = f.input :title
   = f.input :season
   = f.input :description
-  = f.input :release
+  = f.association :releases, as: :radio_buttons
   = f.input :estimate, start_year: Date.today.year - 21, include_blank: true
   = f.input :rate, collection: 1..5, include_blank: false
   = f.input :step, collection: Anime.steps, include_blank: false
   = f.input :state, collection: Anime.states, include_blank: false
-  = f.input :adala, collection: Release.all
+  = f.input :adala
   = f.input :t411
   = f.input :trailer
   = f.button :submit

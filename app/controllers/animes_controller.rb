@@ -20,7 +20,7 @@ class AnimesController < ApplicationController
   #   Format: Html
   ##
   def to_check
-    @animes = Anime.to_check.order release: :desc, title: :desc
+    @animes = Anime.to_check.order title: :desc
   end
 
   ## Render animes to see
@@ -84,7 +84,7 @@ class AnimesController < ApplicationController
   #     state: String(required, value: Waiting, To dl) - State of anime
   #     season: String(default: 1) - Season of anime
   #     rate: Integer(default: 1) - Rate of anime
-  #     release: Date(required) - Release date of anime
+  #     release_ids: Integer(required) - Id of associate release
   #     estimate: Date(default: release + 1 years) - When is ready to donwload
   # Notice:
   #   Success: Create anime and redirect to GET /
@@ -150,7 +150,7 @@ class AnimesController < ApplicationController
     def anime_params
       params.require(:anime)
         .permit :title, :description, :adala, :t411, :trailer, :step, :state,
-                :season, :rate, :release, :estimate
+                :season, :rate, :release_ids, :estimate
     end
 
     ## Set @anime in function of the id inside the url

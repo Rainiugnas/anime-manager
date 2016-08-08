@@ -14,7 +14,6 @@ class Anime < ActiveRecord::Base
 
   #Default values
   after_initialize if: :new_record? do
-    #self.release ||= Date.today
     self.rate ||= 1
     self.season ||= 1
     self.step ||= Anime.steps.first
