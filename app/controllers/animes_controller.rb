@@ -20,7 +20,7 @@ class AnimesController < ApplicationController
   #   Format: Html
   ##
   def to_check
-    @animes = Anime.to_check
+    @animes = Anime.to_check.order release: :desc, title: :desc
   end
 
   ## Render animes to see
@@ -30,7 +30,7 @@ class AnimesController < ApplicationController
   #   Format: Html
   ##
   def to_see
-    @animes = Anime.to_see
+    @animes = Anime.to_see.order rate: :desc, state: :asc, estimate: :asc, title: :desc
   end
 
   ## Render anime to saw
@@ -40,7 +40,7 @@ class AnimesController < ApplicationController
   #   Format: Html
   ##
   def saw
-    @animes = Anime.saw
+    @animes = Anime.saw.order rate: :desc, title: :desc
   end
 
   ## Set anime step to next

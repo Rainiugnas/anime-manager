@@ -1,4 +1,6 @@
-- @animes.each do |anime|
-  .box.bg-dark.col-sm-4
-    = render 'anime', anime: anime
+.row
+  - @animes.each do |anime|
+    .col-sm-4
+      .box.bg-dark
+        = render 'anime', anime: anime
     

@@ -24,7 +24,7 @@ class Anime < ActiveRecord::Base
     self.t411 = "http://www.t411.ch/torrents/search/?search=#{self.title.gsub " ", "+"}&order=size&type=desc" if self.t411.blank?
   end
 
-  #Record getter
+  #Record handler
   scope :to_check, -> { where step: "To check" }
   scope :to_see, -> { where step: "To see" }
   scope :saw, -> { where step: "Saw" }
