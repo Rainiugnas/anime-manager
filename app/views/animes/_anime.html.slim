@@ -1,9 +1,14 @@
 /// Display anime information
 /// Params:
 ///   - anime: Anime - Contains the informations to display
+///   - rate: Bool - Display rate
+///   - release: Bool - Display release
+///   - download: Bool - Display download
+///   - download_management: Bool - Display download management
 
 .action.text-right
-  = link_to "", next_step_anime_path(anime), method: :patch, class: "text-warning glyphicon glyphicon-arrow-right"
+  - if anime.next_step?
+    = link_to "", next_step_anime_path(anime), method: :patch, class: "text-warning glyphicon glyphicon-arrow-right"
   = link_to "", edit_anime_path(anime), class: "text-primary glyphicon glyphicon-edit"
   = link_to "", anime_path(anime), method: :delete, class: "text-danger glyphicon glyphicon-remove"
 .title = anime.title
@@ -11,13 +16,26 @@ p
   em 
     strong Season: #{anime.season}
 p = anime.description
-ul.list-unstyled.bg-light.box
-  li Rate: #{anime.rate.value}
-  li Release: #{anime.release}
-  li
-    'Can be download
-    - unless anime.download?
-        | on #{anime.estimate.to_quarter}
+
+- if rate || release || download
+  ul.list-unstyled.bg-light.box
+    - if rate
+      li Rate: #{anime.rate.value}
+    - if release
+      li 
+        'Release:
+        span.text-primary = anime.release
+    - if download
+      li class="#{anime.download_text_color}"
+        'Can be download
+        - unless anime.download?
+            | on #{anime.estimate.to_quarter}
+    - if download_management
+      li
+        - if anime.downloaded?
+          span.text-success Download
+        - unless anime.downloaded?
+          span.text-warning Can be download
 ul
   li
     strong

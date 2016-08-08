@@ -6,5 +6,6 @@
       - release.animes.to_check.each do |anime|
         .col-sm-4
           .box.bg-dark
-            = render 'anime', anime: anime
+            = render 'anime', anime: anime, rate: true, release: false,
+                      download: false, download_management: false
     
