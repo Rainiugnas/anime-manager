@@ -14,4 +14,7 @@ class Release < ActiveRecord::Base
 
     self.date = Date.new self.year, month, 1
   end
+
+  #Format
+  def to_s () "#{quarter} #{year.to_s}" end
 end
