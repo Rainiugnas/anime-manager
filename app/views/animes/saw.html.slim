@@ -1,5 +1,9 @@
-.row
-  - @animes.each do |anime|
-    .col-sm-4
-      .box.bg-dark
-        = render 'anime', anime: anime
+- @rates.each do |rate|
+  - next if rate.animes.saw.blank?
+  .block
+    .title.text-default = rate
+    .row
+      - rate.animes.saw.each do |anime|
+        .col-sm-4
+          .box.bg-dark
+            = render 'anime', anime: anime

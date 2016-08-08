@@ -30,7 +30,7 @@ class AnimesController < ApplicationController
   #   Format: Html
   ##
   def to_see
-    @animes = Anime.to_see.order rate: :desc, state: :asc, estimate: :asc, title: :desc
+    @rates = Rate.all
   end
 
   ## Render anime to saw
@@ -40,7 +40,7 @@ class AnimesController < ApplicationController
   #   Format: Html
   ##
   def saw
-    @animes = Anime.saw.order rate: :desc, title: :desc
+    @rates = Rate.all
   end
 
   ## Set anime step to next
@@ -83,7 +83,7 @@ class AnimesController < ApplicationController
   #     step: String(required, value: To check, To see, Saw) - Step of anime
   #     state: String(required, value: Waiting, To dl) - State of anime
   #     season: String(default: 1) - Season of anime
-  #     rate: Integer(default: 1) - Rate of anime
+  #     rate_id: Integer(default: 1) - Id of parent rate
   #     release_id: Integer(required) - Id of parent release
   #     estimate: Date(default: release + 1 years) - When is ready to donwload
   # Notice:
@@ -150,7 +150,7 @@ class AnimesController < ApplicationController
     def anime_params
       params.require(:anime)
         .permit :title, :description, :adala, :t411, :trailer, :step, :state,
-                :season, :rate, :release_id, :estimate
+                :season, :rate_id, :release_id, :estimate
     end
 
     ## Set @anime in function of the id inside the url

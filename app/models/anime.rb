@@ -1,6 +1,7 @@
 class Anime < ActiveRecord::Base
   #Association
   belongs_to :release
+  belongs_to :rate
 
   #Constants
   def self.steps()  %w(To\ check To\ see Saw) end
@@ -11,10 +12,10 @@ class Anime < ActiveRecord::Base
   validates :step, inclusion: { in: Anime.steps }
   validates :state, inclusion: { in: Anime.states }
   validates :release, presence: true
+  validates :rate, presence: true
 
   #Default values
   after_initialize if: :new_record? do
-    self.rate ||= 1
     self.season ||= 1
     self.step ||= Anime.steps.first
     self.state ||= Anime.states.first
@@ -27,10 +28,9 @@ class Anime < ActiveRecord::Base
   end
 
   #Record handler
-  default_scope { order title: :asc }
-  scope :to_check, -> { where step: "To check" }
-  scope :to_see, -> { where step: "To see" }
-  scope :saw, -> { where step: "Saw" }
+  scope :to_check, -> { where(step: "To check").order 'LOWER(title) ASC' }
+  scope :to_see, -> { where(step: "To see").order(state: :asc, estimate: :asc).order 'LOWER(title) ASC'}
+  scope :saw, -> { where(step: "Saw").order 'LOWER(title) ASC' }
 
   #Modifier
   ## Change the current step to the next one

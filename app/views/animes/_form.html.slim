@@ -4,7 +4,7 @@
   = f.input :description
   = f.association :release, include_blank: false
   = f.input :estimate, start_year: Date.today.year - 21, include_blank: true
-  = f.input :rate, collection: 1..5, include_blank: false
+  = f.association :rate, include_blank: false
   = f.input :step, collection: Anime.steps, include_blank: false
   = f.input :state, collection: Anime.states, include_blank: false
   = f.input :adala
