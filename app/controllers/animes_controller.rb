@@ -4,7 +4,6 @@
 class AnimesController < ApplicationController
   before_action :set_anime, only: [:edit, :update, :destroy, :next_step]
 
-
   ## Render stats (homepage)
   # Access:
   #   Route: GET /
@@ -21,7 +20,7 @@ class AnimesController < ApplicationController
   #   Format: Html
   ##
   def to_check
-    @animes = Anime.all
+    @animes = Anime.to_check
   end
 
   ## Render animes to see
@@ -31,6 +30,7 @@ class AnimesController < ApplicationController
   #   Format: Html
   ##
   def to_see
+    @animes = Anime.to_see
   end
 
   ## Render anime to saw
@@ -40,6 +40,7 @@ class AnimesController < ApplicationController
   #   Format: Html
   ##
   def saw
+    @animes = Anime.saw
   end
 
   ## Set anime step to next
