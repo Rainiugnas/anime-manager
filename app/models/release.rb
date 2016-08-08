@@ -24,5 +24,5 @@ class Release < ActiveRecord::Base
   #Format
   def to_s () "#{quarter.capitalize} #{year.to_s}" end
   ##Use by rails admin to display correct name
-  def name () to_s end
+  def name () to_s unless quarter.blank? || year.blank? end
 end
