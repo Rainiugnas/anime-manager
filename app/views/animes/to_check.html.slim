@@ -1,9 +1,9 @@
 - @animes.each do |anime|
   .box.bg-dark.col-sm-4
     .action.text-right
-      a.text-warning.glyphicon.glyphicon-arrow-right
+      = link_to "", next_step_anime_path(anime), method: :patch, class: "text-warning glyphicon glyphicon-arrow-right"
       = link_to "", edit_anime_path(anime), class: "text-primary glyphicon glyphicon-edit"
-      a.text-danger.glyphicon.glyphicon-remove
+      = link_to "", anime_path(anime), method: :delete, class: "text-danger glyphicon glyphicon-remove"
     .title = anime.title
     p
       em 

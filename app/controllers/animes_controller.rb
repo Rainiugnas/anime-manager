@@ -2,7 +2,7 @@
 # Handle pages link to anime
 ##
 class AnimesController < ApplicationController
-  before_action :set_anime, only: [:edit, :update, :delete]
+  before_action :set_anime, only: [:edit, :update, :destroy, :next_step]
 
 
   ## Render stats (homepage)
@@ -40,6 +40,21 @@ class AnimesController < ApplicationController
   #   Format: Html
   ##
   def saw
+  end
+
+  ## Set anime step to next
+  # Access:
+  #   Route: PATCH /anime/:id/next_step
+  #   Helper: next_step_animes_path
+  #   Format: Html
+  # Params:
+  #   id: Integer - Id of anime
+  # Notice:
+  #   Redirect to current page
+  ##
+  def next_step
+    @anime.next_step!
+    redirect_to :back
   end
 
   ## Render new form
@@ -86,23 +101,42 @@ class AnimesController < ApplicationController
   #   Route: GET /animes/:id/edit
   #   Helper: edit_anime_path
   #   Format: Html
+  # Params:
+  #   id: Integer - Id of anime
   ##
   def edit
   end
 
   ## Handle edit form
   # Access:
-  #   Route: PATCH /animes/:id/edit
+  #   Route: PATCH /animes/:id/
   #   Helper: edit_anime_path
   #   Format: Html
+  # Params:
+  #   id: Integer - Id of anime
   # Notice:
-  #   See create for params
+  #   See create for other params
   #   Success: update anime and redirect to GET /
   #   Fail: render GET /anime/:id/edit
   ##
   def update
     if @anime.update anime_params
       then redirect_to root_path else render 'edit' end
+  end
+
+  ## Delete anime
+  # Access:
+  #   Route: DELETE /animes/:id/
+  #   Helper: anime_path
+  #   Format: Html
+  # Params:
+  #   id: Integer - Id of anime
+  # Notice:
+  #   Redirect to GET /
+  ##
+  def destroy
+    @anime.delete
+    redirect_to root_path
   end
 
   private
