@@ -11,6 +11,7 @@ class AnimesController < ApplicationController
   #   Format: Html
   ##
   def stats
+    @animes = Anime.all
   end
 
   ## Render animes to check

@@ -32,6 +32,10 @@ class Anime < ActiveRecord::Base
   scope :to_see, -> { where(step: "To see").order(state: :asc, estimate: :asc).order 'LOWER(title) ASC'}
   scope :saw, -> { where(step: "Saw").order 'LOWER(title) ASC' }
 
+  scope :exelents, -> { joins(:rate).where('rates.value = 5') }
+  scope :goods, -> { joins(:rate).where('rates.value = 4') }
+  scope :bads, -> { joins(:rate).where('rates.value IN (3, 2, 1)') }
+
   #Modifier
   ## Change the current step to the next one
   def next_step!
