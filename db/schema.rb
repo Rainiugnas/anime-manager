@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160807203937) do
+ActiveRecord::Schema.define(version: 20160808024225) do
 
   create_table "animes", force: :cascade do |t|
     t.string   "title"
@@ -27,6 +27,14 @@ ActiveRecord::Schema.define(version: 20160807203937) do
     t.date     "estimate"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "releases", force: :cascade do |t|
+    t.string   "quarter"
+    t.integer  "year"
+    t.date     "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
