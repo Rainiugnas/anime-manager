@@ -2,7 +2,7 @@
   .box.bg-dark.col-sm-4
     .action.text-right
       a.text-warning.glyphicon.glyphicon-arrow-right
-      a.text-primary.glyphicon.glyphicon-edit
+      = link_to "", edit_anime_path(anime), class: "text-primary glyphicon glyphicon-edit"
       a.text-danger.glyphicon.glyphicon-remove
     .title = anime.title
     p

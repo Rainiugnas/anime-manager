@@ -2,6 +2,8 @@
 # Handle pages link to anime
 ##
 class AnimesController < ApplicationController
+  before_action :set_anime, only: [:edit, :update, :delete]
+
 
   ## Render stats (homepage)
   # Access:
@@ -40,7 +42,7 @@ class AnimesController < ApplicationController
   def saw
   end
 
-  ## Render new
+  ## Render new form
   # Access:
   #   Route: GET /animes/new
   #   Helper: new_anime_path
@@ -76,16 +78,51 @@ class AnimesController < ApplicationController
     @anime = Anime.new anime_params
 
     if @anime.save
-      redirect_to root_path
-    else
-      render 'new'
-    end
+      then redirect_to root_path else render 'new' end
+  end
+
+  ## Render edit form
+  # Access:
+  #   Route: GET /animes/:id/edit
+  #   Helper: edit_anime_path
+  #   Format: Html
+  ##
+  def edit
+  end
+
+  ## Handle edit form
+  # Access:
+  #   Route: PATCH /animes/:id/edit
+  #   Helper: edit_anime_path
+  #   Format: Html
+  # Notice:
+  #   See create for params
+  #   Success: update anime and redirect to GET /
+  #   Fail: render GET /anime/:id/edit
+  ##
+  def update
+    if @anime.update anime_params
+      then redirect_to root_path else render 'edit' end
   end
 
   private
+    ## Filter params for anime
+    # Params:
+    #   See create or update
+    # Return:
+    #   Hash - without key and bad params
+    ##
     def anime_params
       params.require(:anime)
         .permit :title, :description, :adala, :t411, :trailer, :step, :state,
                 :season, :rate, :release, :estimate
+    end
+
+    ## Set @anime in function of the id inside the url
+    # Params:
+    #   id: Integer - Id of anime
+    ##
+    def set_anime
+      @anime = Anime.find params[:id]
     end
 end
