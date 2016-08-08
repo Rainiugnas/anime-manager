@@ -1,4 +1,7 @@
 class Release < ActiveRecord::Base
+  #Association
+  has_and_belongs_to_many :animes
+
   #Constants
   def self.quarters() %w(winter spring summer fall) end
 
@@ -15,6 +18,11 @@ class Release < ActiveRecord::Base
     self.date = Date.new self.year, month, 1
   end
 
+  #Record handler
+  default_scope { order date: :desc }
+
   #Format
-  def to_s () "#{quarter} #{year.to_s}" end
+  def to_s () "#{quarter.capitalize} #{year.to_s}" end
+  ##Use by rails admin to display correct name
+  def name () to_s end
 end

@@ -7,7 +7,7 @@
   = f.input :rate, collection: 1..5, include_blank: false
   = f.input :step, collection: Anime.steps, include_blank: false
   = f.input :state, collection: Anime.states, include_blank: false
-  = f.input :adala
+  = f.input :adala, collection: Release.all
   = f.input :t411
   = f.input :trailer
   = f.button :submit

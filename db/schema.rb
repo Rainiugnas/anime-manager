@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160808024225) do
+ActiveRecord::Schema.define(version: 20160808032813) do
 
   create_table "animes", force: :cascade do |t|
     t.string   "title"
@@ -23,11 +23,18 @@ ActiveRecord::Schema.define(version: 20160808024225) do
     t.string   "state"
     t.string   "season"
     t.integer  "rate"
-    t.date     "release"
     t.date     "estimate"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  create_table "animes_releases", force: :cascade do |t|
+    t.integer "anime_id"
+    t.integer "release_id"
+  end
+
+  add_index "animes_releases", ["anime_id"], name: "index_animes_releases_on_anime_id"
+  add_index "animes_releases", ["release_id"], name: "index_animes_releases_on_release_id"
 
   create_table "releases", force: :cascade do |t|
     t.string   "quarter"
