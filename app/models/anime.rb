@@ -27,6 +27,7 @@ class Anime < ActiveRecord::Base
   end
 
   #Record handler
+  default_scope { order title: :asc }
   scope :to_check, -> { where step: "To check" }
   scope :to_see, -> { where step: "To see" }
   scope :saw, -> { where step: "Saw" }

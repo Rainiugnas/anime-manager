@@ -2,7 +2,7 @@
   = f.input :title
   = f.input :season
   = f.input :description
-  = f.association :releases
+  = f.association :release, include_blank: false
   = f.input :estimate, start_year: Date.today.year - 21, include_blank: true
   = f.input :rate, collection: 1..5, include_blank: false
   = f.input :step, collection: Anime.steps, include_blank: false

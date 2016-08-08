@@ -1,6 +1,10 @@
-.row
-  - @animes.each do |anime|
-    .col-sm-4
-      .box.bg-dark
-        = render 'anime', anime: anime
+- @releases.each do |release|
+  - next if release.animes.blank?
+  .block
+    .title.text-default = release
+    .row
+      - release.animes.each do |anime|
+        .col-sm-4
+          .box.bg-dark
+            = render 'anime', anime: anime
     
